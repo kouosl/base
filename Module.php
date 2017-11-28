@@ -26,7 +26,6 @@ class Module extends \yii\base\Module
 
         parent::init();
 
-        $this->registerTranslations();
 
         $isKouOslModule = explode("\\",self::className())[0] === "kouosl" ? true : false;
 
