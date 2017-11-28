@@ -28,6 +28,11 @@ class Module extends \yii\base\Module
 
         $this->registerTranslations();
 
+        $lang = yii::$app->session->get('lang');
+        if($lang){
+            yii::$app->language = $lang;
+        }
+
         $isKouOslModule = explode("\\",self::className())[0] === "kouosl" ? true : false;
 
         $this->setNamespace();
