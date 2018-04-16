@@ -16,7 +16,7 @@ class BaseController extends Controller
                         'roles' => ['@'],
                     ],
                     [
-                        'actions' => ['login', 'signup','error'],
+                        'actions' => ['login', 'signup','error','contact','about'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
