@@ -11,12 +11,15 @@ class UrlManager extends \yii\web\UrlManager{
 		parent::init();
 		
 		$modules = yii::$app->getModules();
+		
 		foreach ($modules as $module)
-		{
-			
+			{
+		
+				
 				$rules = (method_exists($module['class'],'initRules')) ? $module['class']::initRules() : [];
+				
 				parent::addRules($rules);
-		}
+			}
 		
 	}
 }
