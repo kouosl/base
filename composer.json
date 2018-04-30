@@ -1,6 +1,6 @@
 {
     "name": "kouosl/portal-base",
-    "description": "Yii2 Kou OSL Site Module Integration",
+    "description": "Base module for KOUOSL",
     "type": "yii2-extension",
     "keywords": ["yii2", "yii 2", "base", "module", "modules", "account", "management", "profile", "profiles"],
     "license": "BSD-3-Clause",
