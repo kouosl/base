@@ -1,5 +1,5 @@
 {
-    "name": "kouosl/base",
+    "name": "kouosl/portal-base",
     "description": "Yii2 Kou OSL Site Module Integration",
     "type": "yii2-extension",
     "keywords": ["yii2", "yii 2", "base", "module", "modules", "account", "management", "profile", "profiles"],
@@ -7,7 +7,11 @@
     "authors": [
         {
             "name": "İbrahim Aşık",
-            "email": "info@kouosl.com.tr"
+            "email": "info@kouosl.org"
+        },
+        {
+            "name": "Ekrem HATİPOĞLU",
+            "email": "ekrem.hatipoglu@outlook.com"
         }
     ],
     "autoload": {
