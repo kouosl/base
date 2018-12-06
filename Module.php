@@ -1,5 +1,4 @@
 <?php
-
 namespace kouosl\base;
 
 use Yii;
@@ -23,7 +22,6 @@ class Module extends \yii\base\Module
 
     public function init()
     {
-
         parent::init();
 
         $this->registerTranslations();
@@ -36,7 +34,6 @@ class Module extends \yii\base\Module
         $isKouOslModule = explode("\\",self::className())[0] === "kouosl" ? true : false;
 
         $this->setNamespace();
-
 
         switch ($this->namespace)
         {
@@ -72,7 +69,6 @@ class Module extends \yii\base\Module
             default:{
                 throw new HttpException(500,'init');
             };break;
-
         }
     }
 
@@ -91,10 +87,8 @@ class Module extends \yii\base\Module
         switch ($this->namespace)
         {
             case 'backend':{
-
             };break;
             case 'frontend':{
-
             };break;
             case 'api':{
                 $behaviors['authenticator'] = [
@@ -107,17 +101,11 @@ class Module extends \yii\base\Module
                 ];
             };break;
             case 'console':{
-
             };break;
             default:{
                 throw new HttpException(500,'behaviors'.$this->namespace);
             };break;
         }
-
         return $behaviors;
-
     }
-
-
 }
-
