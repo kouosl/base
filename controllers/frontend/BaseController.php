@@ -5,14 +5,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
-class BaseController extends Controller
-{		
+class BaseController extends Controller{		
 	
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
+    public function behaviors(){
         return [
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
@@ -31,13 +26,11 @@ class BaseController extends Controller
         ];
     }
 
-	public function actions()
-	{
+	public function actions(){
 		return [
-				'error' => [
-						'class' => 'yii\web\ErrorAction',
-				],
+			'error' => [
+				'class' => 'yii\web\ErrorAction',
+			],
 		];
 	}
-
 }
