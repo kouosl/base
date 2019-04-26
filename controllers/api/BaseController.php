@@ -6,8 +6,7 @@ use yii\rest\Controller;
 use yii\filters\ContentNegotiator;
 use yii\web\Response;
 
-class BaseController extends Controller
-{
+class BaseController extends Controller{
 	public function behaviors() {
 		$behaviors = parent::behaviors();
 		$behaviors['contentNegotiator'] = [
@@ -19,13 +18,11 @@ class BaseController extends Controller
 		return $behaviors;
 	}
 	
-    public function actions()
-    {
+    public function actions(){
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
         ];
     }
-
 }

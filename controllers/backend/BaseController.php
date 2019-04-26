@@ -3,10 +3,8 @@ namespace kouosl\base\controllers\backend;
 
 use yii\web\Controller;
 
-class BaseController extends Controller
-{	
-  	public function behaviors()
-    {
+class BaseController extends Controller{	
+  	public function behaviors(){
         return [
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
@@ -24,13 +22,12 @@ class BaseController extends Controller
             ],
         ];
     }
-	public function actions()
-	{
+
+	public function actions(){
 		return [
-				'error' => [
-						'class' => 'yii\web\ErrorAction',
-				],
+			'error' => [
+				'class' => 'yii\web\ErrorAction',
+			],
 		];
 	}
-
 }
