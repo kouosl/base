@@ -8,10 +8,20 @@ use yii\filters\auth\HttpBearerAuth;
 use yii\filters\auth\QueryParamAuth;
 use yii\web\HttpException;
 
-class Module extends \yii\base\Module{
+abstract class Module extends \yii\base\Module{
     public $controllerNamespace = '';
     public $namespace;
     public $isKouOslModule;
+
+    public function init()
+    {
+        parent::init();
+        static::onLoad();
+    }
+
+    public static function onLoad()
+    {
+    }
     
     public function init(){
         parent::init();
@@ -86,5 +96,16 @@ class Module extends \yii\base\Module{
             };break;
         }
         return $behaviors;
+    }
+
+    public static function registerTranslation($prefix, $basPath, array $fileMap)
+    {
+        if (!isset(Yii::$app->i18n->translations[$prefix])) {
+            Yii::$app->i18n->translations[$prefix] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => $basePath,
+                'fileMap' => $fileMap,
+            ];
+        }
     }
 }
