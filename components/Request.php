@@ -1,12 +1,16 @@
 <?php
 
-namespace kouosl\base\components;
+namespace portalium\components;
 
-class Request extends \yii\web\Request {
+class Request extends \yii\web\Request
+{
     public $web;
     public $aliasUrl;
+    public $csrfParam;
+    public $cookieValidationKey;
 
-    public function getBaseUrl(){
+    public function getBaseUrl()
+    {
         return str_replace($this->web, "", parent::getBaseUrl()) . $this->aliasUrl;
     }
 }

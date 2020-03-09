@@ -1,18 +1,21 @@
 <?php
 
-namespace kouosl\base\components;
+namespace portalium\components;
 
 use Yii;
 
-class UrlManager extends \yii\web\UrlManager{
-	public function init(){
-		parent::init();
+class UrlManager extends \yii\web\UrlManager
+{
+	public function init()
+    {
+	    parent::init();
 		
-		$modules = yii::$app->getModules();
+		$modules = Yii::$app->getModules();
 		
-		foreach ($modules as $module){
-				$rules = (method_exists($module['class'],'initRules')) ? $module['class']::initRules() : [];
-				parent::addRules($rules);
-			}
+		foreach ($modules as $module)
+		{
+            $rules = (method_exists($module['class'],'initRules')) ? $module['class']::initRules() : [];
+            parent::addRules($rules);
+		}
 	}
 }
