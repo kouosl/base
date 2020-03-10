@@ -1,6 +1,8 @@
 <?php
 namespace portalium\web;
 
+use Yii;
+
 abstract class Controller extends \yii\web\Controller
 {
     public function behaviors(){
