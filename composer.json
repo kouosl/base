@@ -2,7 +2,6 @@
 	"name" : "portalium/portalium-core",
 	"description" : "Portalium is a flexible web framework and management system for developers",
 	"type" : "portalium-core",
-	"keywords" : ["portalium", "module", "yii2", "yii", "php"],
 	"license": "MIT",
 	"homepage" : "http://portalium.dev",
 	"authors" : [

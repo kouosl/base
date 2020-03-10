@@ -1,11 +1,7 @@
 <?php
-namespace kouosl\base;
+namespace portalium\base;
 
 use Yii;
-use yii\filters\auth\CompositeAuth;
-use yii\filters\auth\HttpBasicAuth;
-use yii\filters\auth\HttpBearerAuth;
-use yii\filters\auth\QueryParamAuth;
 use yii\web\HttpException;
 
 abstract class Module extends \yii\base\Module

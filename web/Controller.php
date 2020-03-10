@@ -1,7 +1,5 @@
 <?php
-
 namespace portalium\web;
-
 
 abstract class Controller extends \yii\web\Controller
 {

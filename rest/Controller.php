@@ -2,6 +2,10 @@
 
 namespace portalium\rest;
 
+use yii\filters\auth\CompositeAuth;
+use yii\filters\auth\HttpBasicAuth;
+use yii\filters\auth\HttpBearerAuth;
+use yii\filters\auth\QueryParamAuth;
 
 abstract class Controller extends \yii\rest\Controller
 {
@@ -35,5 +39,4 @@ abstract class Controller extends \yii\rest\Controller
             ],
         ];
     }
-
 }
