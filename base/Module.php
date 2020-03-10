@@ -12,7 +12,7 @@ abstract class Module extends \yii\base\Module
         parent::init();
         $this->controllerNamespace = 'portalium\\'.$this->id.'\controllers\\' . Yii::$app->id;
         Yii::$app->language = (!Yii::$app->session->get('lang')) ? !Yii::$app->session->get('lang') : Yii::$app->language;
-        $this->setViewPath('@portalium/' . $this->id . '/views/' . Yii::$app->id);
+        $this->setViewPath('@vendor/portalium/' . $this->id . '/views/' . Yii::$app->id);
         static::moduleInit();
     }
 
