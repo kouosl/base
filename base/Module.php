@@ -31,8 +31,9 @@ abstract class Module extends \yii\base\Module
         }
     }
 
-    public static function t($category, $message, array $params = [], $language = null)
+    public static function coreT($category, $message, array $params = [], $language = null)
     {
+        static::moduleInit();
         return Yii::t($category, $message, $params, $language);
     }
 }
