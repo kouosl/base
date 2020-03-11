@@ -2,6 +2,7 @@
 namespace portalium\web;
 
 use Yii;
+use portalium\base\Module;
 
 abstract class Controller extends \yii\web\Controller
 {
@@ -33,17 +34,12 @@ abstract class Controller extends \yii\web\Controller
         ];
     }
 
-    public function render($view, $params = [], $context = null)
+    public function getViewPath()
     {
-        $viewPath =  "@portalium/theme/views/" . $this->module->id . "/". Yii::$app->id . "/" . Yii::$app->controller->id . "/" . $view . ".php";
-        if(is_file($viewPath))
-            return parent::renderFile($viewPath, $params, $context);
+        if ($this->module instanceof Module) {
+            return '@portalium/' . $this->module->id . '/views/' . Yii::$app->id . DIRECTORY_SEPARATOR . $this->id;
+        }
 
-        $viewPath =  "@portalium/" . $this->module->id . "/views/" . Yii::$app->id . "/" . Yii::$app->controller->id . "/" . $view . ".php";
-        if(is_file($viewPath))
-            return parent::renderFile($viewPath, $params, $context);
-
-        return parent::render($view, $params, $context);
+        return parent::getViewPath();
     }
-
 }
