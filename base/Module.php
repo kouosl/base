@@ -2,10 +2,14 @@
 namespace portalium\base;
 
 use Yii;
+use yii\base\Application;
 use yii\web\HttpException;
 
 class Module extends \yii\base\Module
 {
+    public $urlRules = [];
+    public $apiRules = [];
+    public $apis = [];
 
     public function init()
     {
@@ -19,12 +23,20 @@ class Module extends \yii\base\Module
     {
     }
 
+    public function portaliumBootstrap(Application $app)
+    {
+    }
+
+    public function registerComponents()
+    {
+        return [];
+    }
+
     public static function registerTranslation($prefix, $basePath, array $fileMap)
     {
         if (!isset(Yii::$app->i18n->translations[$prefix])) {
             Yii::$app->i18n->translations[$prefix] = [
                 'class' => 'yii\i18n\PhpMessageSource',
-                'sourceLanguage' => 'en-US',
                 'basePath' => $basePath,
                 'fileMap' => $fileMap,
             ];

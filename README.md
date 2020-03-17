@@ -1,2 +1,2 @@
-# base
-Kocaeli university open source lab yii2 base module
+# Portalium
+Portalium is a flexible web framework and management system for developers

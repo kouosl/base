@@ -16,7 +16,7 @@ abstract class Controller extends \yii\web\Controller
                         'roles' => ['@'],
                     ],
                     [
-                        'actions' => ['login', 'signup','error','contact','about'],
+                        'actions' => ['home','login', 'signup','error','contact','about','captcha','lang'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
