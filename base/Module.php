@@ -14,8 +14,10 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
+
         $this->controllerNamespace = 'portalium\\'.$this->id.'\controllers\\' . Yii::$app->id;
         Yii::$app->language = (Yii::$app->session->get('lang') != "") ? Yii::$app->session->get('lang') : Yii::$app->language;
+        
         static::moduleInit();
     }
 

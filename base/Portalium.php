@@ -46,7 +46,7 @@ abstract class Portalium
             'bootstrap' => ['portalium\console\Bootstrap'],
             'components' => [
                 'urlManager' => [
-                    'class' => 'yii\web\UrlManager',
+                    'class' => 'portalium\web\UrlManager',
                     'enablePrettyUrl' => true,
                     'showScriptName' => false
                 ],
@@ -81,7 +81,7 @@ abstract class Portalium
                     throw new Exception("config file '".$configFile."' found but no array returning.");
                 }
 
-                $this->_appConfig = ArrayHelper::merge($this->_appConfig,$config);
+                $this->_appConfig = ArrayHelper::merge($this->_appConfig, $config);
             }
         }
 
