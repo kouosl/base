@@ -7,11 +7,11 @@ use yii\base\BootstrapInterface;
 
 abstract class Bootstrap implements BootstrapInterface
 {
-    private $_modules;
+    private $modules;
 
     public function getModules()
     {
-        return $this->_modules;
+        return $this->modules;
     }
 
     public function bootstrap($app)
@@ -24,16 +24,16 @@ abstract class Bootstrap implements BootstrapInterface
 
     public function findModules($app)
     {
-        if ($this->_modules === null) {
+        if ($this->modules === null) {
             foreach ($app->getModules() as $id => $obj) {
                 $moduleObject = Yii::$app->getModule($id);
                 if ($moduleObject instanceof \portalium\base\Module) {
-                    $this->_modules[$id] = $moduleObject;
+                    $this->modules[$id] = $moduleObject;
                 }
             }
 
-            if ($this->_modules === null) {
-                $this->_modules = [];
+            if ($this->modules === null) {
+                $this->modules = [];
             }
         }
     }

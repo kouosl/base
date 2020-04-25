@@ -4,19 +4,19 @@ namespace portalium\base;
 use Yii;
 use yii\base\Application;
 use yii\web\HttpException;
+use portalium\site\models\Setting;
 
 class Module extends \yii\base\Module
 {
-    public $urlRules = [];
     public $apiRules = [];
-    public $apis = [];
 
     public function init()
     {
         parent::init();
 
         $this->controllerNamespace = 'portalium\\'.$this->id.'\controllers\\' . Yii::$app->id;
-        Yii::$app->language = (Yii::$app->session->get('lang') != "") ? Yii::$app->session->get('lang') : Yii::$app->language;
+        if(Yii::$app instanceof \portalium\web\Application)
+            Yii::$app->language = (Yii::$app->session->get('lang') != "") ? Yii::$app->session->get('lang') : Setting::findOne(['name' => 'app::language'])->value ;
         
         static::moduleInit();
     }

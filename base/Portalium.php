@@ -12,29 +12,29 @@ abstract class Portalium
 {
     public $app;
 
-    private $_isCli;
-    private $_baseYiiFile;
-    private $_appConfig;
-    private $_configFiles = [];
+    private $isCli;
+    private $baseYiiFile;
+    private $appConfig;
+    private $configFiles = [];
 
-    public function setConfigFiles(array $configFiles)
+    public function setConfigFiles(array $files)
     {
-        $this->_configFiles = $configFiles;
+        $this->configFiles = $files;
     }
 
     public function getConfigFiles()
     {
-        return $this->_configFiles;
+        return $this->configFiles;
     }
 
-    public function setBaseYiiFile($baseYiiFile)
+    public function setBaseYiiFile($yiiFile)
     {
-        $this->_baseYiiFile = $baseYiiFile;
+        $this->baseYiiFile = $yiiFile;
     }
 
     public function getBaseYiiFile()
     {
-        return $this->_baseYiiFile;
+        return $this->baseYiiFile;
     }
 
     public function consoleApplication()
@@ -71,21 +71,21 @@ abstract class Portalium
 
     public function getAppConfig()
     {
-        if ($this->_appConfig === null) {
-            foreach($this->_configFiles as $configFile){
-                if (file_exists($configFile)) {
-                    $config = require $configFile;
+        if ($this->appConfig === null) {
+            foreach($this->configFiles as $file){
+                if (file_exists($file)) {
+                    $config = require $file;
                 }
 
                 if (!is_array($config)) {
-                    throw new Exception("config file '".$configFile."' found but no array returning.");
+                    throw new Exception("Config file '".$file."' found but no array returning.");
                 }
 
-                $this->_appConfig = ArrayHelper::merge($this->_appConfig, $config);
+                $this->appConfig = ArrayHelper::merge($this->appConfig, $config);
             }
         }
 
-        return $this->_appConfig;
+        return $this->appConfig;
     }
 
     public function getCorePath()
@@ -101,16 +101,16 @@ abstract class Portalium
 
     public function getIsCli()
     {
-        if ($this->_isCli === null) {
-            $this->_isCli = $this->getSapiName() === 'cli';
+        if ($this->isCli === null) {
+            $this->isCli = $this->getSapiName() === 'cli';
         }
 
-        return $this->_isCli;
+        return $this->isCli;
     }
 
-    public function setIsCli($isCli)
+    public function setIsCli($cli)
     {
-        $this->_isCli = $isCli;
+        $this->isCli = $cli;
     }
 
     public function isCli()
@@ -129,8 +129,8 @@ abstract class Portalium
 
     private function requireYii()
     {
-        if (file_exists($this->_baseYiiFile)) {
-            defined('PORTALIUM_YII_VENDOR') ?: define('PORTALIUM_YII_VENDOR', dirname($this->_baseYiiFile));
+        if (file_exists($this->baseYiiFile)) {
+            defined('PORTALIUM_YII_VENDOR') ?: define('PORTALIUM_YII_VENDOR', dirname($this->baseYiiFile));
 
             $baseYiiFolder = PORTALIUM_YII_VENDOR . DIRECTORY_SEPARATOR;
 
@@ -148,6 +148,6 @@ abstract class Portalium
             return true;
         }
 
-        throw new Exception("YiiBase file does not exits '".$this->_baseYiiFile."'.");
+        throw new Exception("YiiBase file does not exits '".$this->baseYiiFile."'.");
     }
 }

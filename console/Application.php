@@ -8,8 +8,6 @@ class Application extends \yii\console\Application
 {
     use ApplicationTrait;
 
-    public $mute = false;
-
     public function coreCommands()
     {
         return [

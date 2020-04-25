@@ -5,7 +5,7 @@ namespace portalium\console;
 use Yii;
 use yii\helpers\Inflector;
 use portalium\base\Bootstrap as BaseBootstrap ;
-//use portalium\helpers\FileHelper;
+use portalium\helpers\FileHelper;
 
 
 class Bootstrap extends BaseBootstrap
@@ -17,7 +17,7 @@ class Bootstrap extends BaseBootstrap
 
     public function run($app)
     {
-        /*foreach ($app->getApplicationModules() as $id => $module) {
+        foreach ($app->getApplicationModules() as $id => $module) {
             $folder = $module->basePath . DIRECTORY_SEPARATOR . 'commands';
             if (file_exists($folder) && is_dir($folder)) {
                 foreach (FileHelper::findFiles($folder) as $file) {
@@ -30,6 +30,6 @@ class Bootstrap extends BaseBootstrap
                     Yii::$app->controllerMap[$command] = ['class' => $className];
                 }
             }
-        }*/
+        }
     }
 }

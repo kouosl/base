@@ -6,8 +6,6 @@ class Request extends \yii\web\Request
 {
     public $web;
     public $aliasUrl;
-    public $csrfParam;
-    public $cookieValidationKey;
 
     public function getBaseUrl()
     {

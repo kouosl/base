@@ -6,36 +6,19 @@ use portalium\base\Bootstrap as BaseBootstrap;
 
 class Bootstrap extends BaseBootstrap
 {
-    private $_apis = [];
-
-    private $_urlRules = [];
-
-    private $_apiRules = [];
+    private $rules = [];
 
     public function beforeRun($app)
     {
         foreach ($this->getModules() as $id => $module) {
-            foreach ($module->urlRules as $key => $rule) {
-                if (is_string($key)) {
-                    $this->_urlRules[$key] = $rule;
-                } else {
-                    $this->_urlRules[] = $rule;
-                }
-            }
-
-            foreach ($module->apiRules as $endpoint => $rule) {
-                $this->_apiRules[$endpoint] = $rule;
-            }
-
-
-            foreach ($module->apis as $alias => $class) {
-                $this->_apis[$alias] = ['class' => $class, 'module' => $module];
+            foreach ($module->apiRules as $rule) {
+                    $this->rules[] = $rule;
             }
         }
     }
 
     public function run($app)
     {
-        $app->getUrlManager()->addRules($this->_urlRules);
+        $app->getUrlManager()->addRules($this->rules);
     }
 }
