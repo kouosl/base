@@ -44,4 +44,5 @@ trait RestBehaviorsTrait
     {
         return RestHelper::error($errors);
     }
+
 }
