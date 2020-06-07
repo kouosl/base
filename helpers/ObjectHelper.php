@@ -40,6 +40,6 @@ class ObjectHelper
 
     public static function getControllers(Module $module)
     {
-        // Not yet implement
+        // Not yet implemented
     }
 }

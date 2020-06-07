@@ -3,6 +3,7 @@
 namespace portalium\traits;
 
 use Yii;
+use yii\filters\Cors;
 use yii\web\Response;
 use yii\base\Model;
 use yii\filters\auth\CompositeAuth;
@@ -30,6 +31,10 @@ trait RestBehaviorsTrait
                 HttpBearerAuth::className(),
                 QueryParamAuth::className(),
             ],
+        ];
+
+        $behaviors['corsFilter'] = [
+            'class' => Cors::className(),
         ];
 
         return $behaviors;
