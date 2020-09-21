@@ -14,7 +14,7 @@ class Module extends \yii\base\Module
     {
         parent::init();
 
-        $this->controllerNamespace = 'portalium\\'.$this->id.'\controllers\\' . Yii::$app->id;
+        $this->controllerNamespace = $this->controllerNamespace  . '\\' . Yii::$app->id;
         if(Yii::$app instanceof \portalium\web\Application)
             Yii::$app->language = (Yii::$app->session->get('lang') != "") ? Yii::$app->session->get('lang') : Setting::findOne(['name' => 'app::language'])->value ;
         
